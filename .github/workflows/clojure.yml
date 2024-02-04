@@ -15,7 +15,9 @@ jobs:
     - name: Setup GraalVM
       uses: graalvm/setup-graalvm@v1
       with:
+        # see: https://github.com/marketplace/actions/github-action-for-graalvm
         java-version: '21' # for a specific JDK 21; or '21' for the latest JDK 21
+        components: 'native-image'
         distribution: 'graalvm' # New 'distribution' option
     - name: Install clojure tools
       uses: DeLaGuardo/setup-clojure@12.1
