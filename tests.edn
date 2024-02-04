@@ -1,0 +1,12 @@
+#kaocha/v1 {:capture-output?                 true
+            :kaocha/fail-fast?               true
+            :plugins                         [:kaocha.plugin/profiling
+                                              :kaocha.plugin/print-invocations
+                                              :kaocha.plugin/hooks
+                                              :preloads]
+            :kaocha.hooks/pre-report         [k13labs.aws.lambda.test-setup/defuse-zero-assertions]
+            :kaocha.plugin.preloads/ns-names [k13labs.aws.lambda.test-setup]
+            :tests                           [{:id        :unit
+                                               :kaocha/source-paths             ["src"]
+                                               :kaocha/test-paths               ["test"]
+                                               :ns-patterns                     [".*"]}]}
